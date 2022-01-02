@@ -14,28 +14,16 @@ fetchNASAData()
 
 const displayData = data => {
     document.getElementById('main-title').textContent = data.title
-    // document.getElementById('date').textContent = data.date
     document.getElementById('picture').src = data.hdurl
     document.getElementById('explanation').textContent = data.explanation
 
     let date = document.getElementById('date');
-    // date_input.valueAsDate = new Date();
 
     date.onchange = function () {
-        ChangeUrl(data.title, `https://apod.nasa.gov/apod/ap${sliceDate(this.value)}.html`)
-        
-        function ChangeUrl(title, url) {
-            if (typeof (history.pushState) != "undefined") {
-                var obj = { Title: title, Url: url };
-                history.pushState(obj, obj.Title, obj.Url);
-            } else {
-                alert("Browser does not support HTML5.");
-            }
-        }
+        document.querySelector('#button-link').insertAdjacentHTML('afterend', `<a href="https://apod.nasa.gov/apod/ap${sliceDate(this.value)}.html">Check page of selected date!</a>`)
+
         console.log(sliceDate(this.value));
     }
-
-    
 }
 
 function sliceDate(date) {
