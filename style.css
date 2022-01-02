@@ -1,0 +1,4 @@
+#main-title, #explanation{
+    display: flex;
+    justify-content: center;
+}
