@@ -2,3 +2,7 @@
     display: flex;
     justify-content: center;
 }
+
+input{
+    margin: 20px 0;
+}
